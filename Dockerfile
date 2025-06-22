@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18gh repo create ffmpeg-fastify --public --source=. --remote=origin
 
 # Install FFmpeg
 RUN apt-get update && apt-get install -y ffmpeg
