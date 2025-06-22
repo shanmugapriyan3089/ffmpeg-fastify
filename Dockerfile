@@ -1,10 +1,11 @@
-FROM node:18gh repo create ffmpeg-fastify --public --source=. --remote=origin
+FROM node:18
 
 # Install FFmpeg
 RUN apt-get update && apt-get install -y ffmpeg
 
 WORKDIR /app
 COPY . .
+
 RUN npm install
 
 EXPOSE 3000
