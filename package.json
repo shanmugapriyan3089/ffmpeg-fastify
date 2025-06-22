@@ -1,0 +1,13 @@
+{
+  "name": "ffmpeg-fastify",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "fastify": "^4.21.0",
+    "fastify-multer": "^4.0.1",
+    "node-fetch": "^2.6.9"
+  }
+}
