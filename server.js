@@ -38,9 +38,11 @@ fastify.post('/render', async function (req, reply) {
   const cmd = `ffmpeg -loop 1 -i ${bgPath} -i ${audioFile} -c:v libx264 -c:a aac -shortest -vf scale=1080:1920 ${outMp4}`;
   exec(cmd, (err) => {
     if (err) return reply.code(500).send('FFmpeg error');
+reply
+  .header('Content-Disposition', 'attachment; filename=video.mp4')
+  .type('video/mp4')
+  .send(fs.createReadStream(outMp4));
 
-    reply.header('Content-Disposition', 'attachment; filename=video.mp4');
-    reply.send(fs.createReadStream(outMp4));
 
     setTimeout(() => {
       fs.unlinkSync(audioFile);
